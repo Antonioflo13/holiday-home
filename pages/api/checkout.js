@@ -17,7 +17,7 @@ const checkout = async (req, res) => {
       locale: "auto",
       mode: "payment",
       success_url: `${YOUR_DOMAIN}/success-payment?sr=${startReservation}&er=${endReservation}`,
-      cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+      cancel_url: `${YOUR_DOMAIN}`,
       automatic_tax: { enabled: true },
       metadata: {
         startReservation: startReservation,
