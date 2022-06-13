@@ -1,0 +1,35 @@
+.container {
+  --num-cols: 6;
+  --row-height: 140px;
+  --gap: 16px;
+  display: grid;
+  max-width: 100vw;
+  grid-template-columns: repeat(var(--num-cols), 1fr);
+  grid-auto-rows: var(--row-height);
+  gap: 16px;
+  margin: 40px;
+}
+
+.gridCol2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);
+  transition: transform .2s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    --num-cols: 2;
+    --row-height: 80px;
+  }
+}

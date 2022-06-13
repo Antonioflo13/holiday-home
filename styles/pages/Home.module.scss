@@ -1,0 +1,74 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "carousel carousel carousel carousel"
+    ". cardBooking cardBooking ."
+    ". services services ."
+    ". homeDetails homeDetails ."
+    ". locationMap locationMap ."
+    "parallax parallax parallax parallax"
+    ". masonry masonry .";
+}
+
+.carousel {
+  grid-area: carousel;
+}
+
+.cardBookingContainer {
+  grid-area: cardBooking;
+  position: relative;
+  justify-self: center;
+  margin-bottom: 5rem;
+  margin-top: -50px;
+}
+
+@media (max-width: 991.98px) {
+  .cardBookingContainer {
+    margin: -2.2rem 2rem 5rem 2rem;
+  }
+}
+
+.services {
+  grid-area: services;
+  justify-self: center;
+  max-width: 70vw;
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 991.98px) {
+  .services {
+    margin: 0 2rem 5rem 2rem;
+  }
+}
+
+.homeDetails {
+  grid-area: homeDetails;
+  justify-self: center;
+}
+
+@media (max-width: 991.98px) {
+  .homeDetails {
+    margin: 0 2rem 5rem 2rem;
+  }
+}
+
+.locationMap {
+  grid-area: locationMap;
+  margin: 0 2rem 2rem 2rem;
+}
+
+.parallax {
+  grid-area: parallax;
+  margin: 5rem 0 5rem 0;
+}
+
+@media (max-width: 768.98px) {
+  .parallaxImage {
+    background-position: -315px center;
+    background-repeat: no-repeat;
+  }
+}
+
+.masonry {
+  grid-area: masonry;
+}

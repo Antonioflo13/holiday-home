@@ -1,0 +1,20 @@
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  span {
+    font-size: 1em;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .services {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 598px) {
+  .services {
+    flex-direction: column;
+  }
+}

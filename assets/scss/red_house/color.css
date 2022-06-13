@@ -1,0 +1,19 @@
+/* FONTS  */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Nunito+Sans:wght@200&family=Smooch+Sans:wght@100&display=swap');
+
+* {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+/* BACKGROUND-IMAHE */
+body {
+    background-image: url("https://i.pinimg.com/originals/2e/fe/c2/2efec261efc0e9b0d87ca985fe25c910.jpg");
+}
+
+/* COLORS */
+:root {
+    --primary-color:rgb(194, 79, 79);
+    --primary-color-focus: rgb(192, 136, 136);
+    --primary-color-text:#ffffff;
+}
