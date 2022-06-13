@@ -13,6 +13,8 @@ import image6 from "../assets/img/carouselImages/img6.jpeg";
 import image7 from "../assets/img/carouselImages/img7.jpeg";
 import image8 from "../assets/img/carouselImages/img8.jpeg";
 import image9 from "../assets/img/carouselImages/img9.jpeg";
+//STYLES
+import styles from "./styles/Carousel.module.scss";
 
 const Carousel = () => {
   const images = [
@@ -78,12 +80,9 @@ const Carousel = () => {
       {images.map((image) => {
         return (
           <SplideSlide key={image.id}>
-            <Image
+            <img
+              className={styles.image}
               objectPosition={image.position}
-              objectFit="cover"
-              width={"100%"}
-              height={"30vh"}
-              layout="responsive"
               src={`${image.url.src}`}
               alt={image.url.src}
             />

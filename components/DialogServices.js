@@ -236,7 +236,7 @@ const DialogVisitors = (props) => {
               <span className="mr-2">{type.icon}</span>
               <div className="mb-2">
                 <div className="font-bold">{type.text}</div>
-                <div className="text-sm">{type.subtext}</div>
+                <div className="text-sm text-500">{type.subtext}</div>
               </div>
             </div>
           ))}

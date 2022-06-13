@@ -35,21 +35,17 @@
   margin-bottom: 5rem;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 598.98px) {
   .services {
-    margin: 0 2rem 5rem 2rem;
+    max-width: none;
+   width: 85vw;
   }
 }
 
 .homeDetails {
   grid-area: homeDetails;
   justify-self: center;
-}
-
-@media (max-width: 991.98px) {
-  .homeDetails {
-    margin: 0 2rem 5rem 2rem;
-  }
+  margin-bottom: 2rem;
 }
 
 .locationMap {
