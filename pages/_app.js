@@ -1,7 +1,6 @@
 //PARALLAX
 import { ParallaxProvider } from "react-scroll-parallax";
 //PRIME VUE
-import "primeicons/primeicons.css";
 import "primereact/resources/primereact.min.css";
 import "/node_modules/primeflex/primeflex.css";
 //FONTAWESOME
