@@ -9,6 +9,11 @@ export default function Document() {
           content="6T0AqQKpOi4xxo_0IIShK5uhWgY2_UrPPSXHLb4oXLM"
         />
         <meta name="keywords" content="puglia, casa vacanze, apuglia, Ostuni" />
+        <meta
+          name="description"
+          content="Casa vanze in the historic center of Via gaetano tanzarella Vitale,
+          Ostuni, Brindisi, Puglia 72017"
+        />
         <meta name="author" content="AF" />
         <link rel="shortcut icon" type="image/x-icon" href="redHouse.ico" />
       </Head>
