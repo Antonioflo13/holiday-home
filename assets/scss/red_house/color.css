@@ -1,6 +1,6 @@
 /* FONTS  */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,200&display=swap');
 
 /* BACKGROUND-IMAGE */
 body {
@@ -13,5 +13,5 @@ body {
     --primary-color:rgb(194, 79, 79);
     --primary-color-focus: rgb(192, 136, 136);
     --primary-color-text:#ffffff;
-    --font-family: 'Dancing Script', cursive;
+    --font-family: 'Nunito Sans', sans-serif;
 }
