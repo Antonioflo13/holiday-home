@@ -82,7 +82,10 @@ const Carousel = () => {
           <SplideSlide key={image.id}>
             <img
               className={styles.image}
-              objectPosition={image.position}
+              style={{
+               objectPosition: image.position
+              }
+              }
               src={`${image.url.src}`}
               alt={image.url.src}
             />

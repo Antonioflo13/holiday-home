@@ -4,16 +4,10 @@ const DialogVisitorsFooter = (props) => {
   return (
     <div>
       <Button
-        label="Chiudi"
-        icon="pi pi-times"
-        onClick={props.onHide}
-        className="p-button-text"
-      />
-      <Button
         label="Conferma"
         icon="pi pi-check"
+        className="p-button-sm"
         onClick={props.confirmVisitors}
-        autoFocus
       />
     </div>
   );

@@ -71,7 +71,7 @@ const DialogVisitors = (props) => {
       header="Ospiti"
       visible={openDialog}
       style={{ width: "30vw" }}
-      breakpoints={{ "960px": "75vw" }}
+      breakpoints={{ "960px": "75vw", "768px": "95vw" }}
       footer={DialogVisitorsFooter}
       onHide={onHide}
       confirmVisitors={visitors}
@@ -84,7 +84,7 @@ const DialogVisitors = (props) => {
           >
             <div className="flex flex-column">
               <div className={style.bold}>{visitorType.type}</div>
-              <div>{visitorType.description}</div>
+              <div className="text-sm text-500">{visitorType.description}</div>
             </div>
             <Counter
               setVisitors={(number) => handlerVisitors(visitorType.id, number)}
