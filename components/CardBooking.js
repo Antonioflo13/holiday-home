@@ -122,7 +122,7 @@ const CardBooking = () => {
 
   //HTML RENDERS
   const cardHeader = (
-    <div className="flex justify-content-center align-items-center font-bold text-xl p-3">
+    <div className="flex justify-content-center align-items-center text-xl p-3">
       <div>Ehi, scegli le date per la tua prossima vacanza!</div>
       <RedDoor />
     </div>
