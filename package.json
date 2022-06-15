@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "dotenv -e .env.CASAGIARDINO next build",
     "start": "next start",
     "lint": "next lint",
     "CASAGIARDINO": "dotenv -e .env.CASAGIARDINO next dev"
