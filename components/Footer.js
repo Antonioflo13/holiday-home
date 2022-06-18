@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 //LOGO
-import Logo from "../assets/img/Logo.png";
+import Logo from "../assets/img/Logo.svg";
 import Booking from "../assets/icon/booking.svg";
 //STYLES
 import styles from "./styles/Footer.module.scss";
@@ -11,14 +11,7 @@ const Footer = () => {
   return (
     <footer className={styles.container}>
       <div className={styles.logoContainer}>
-        <Image
-          className="mr-2"
-          src={Logo.src}
-          alt="logo"
-          width={100}
-          height={100}
-        />
-        <div>Casa Giardino</div>
+        <Logo/>
       </div>
       <div className={styles.logoContainer}>
         <div className="mr-2">Seguici su</div>
