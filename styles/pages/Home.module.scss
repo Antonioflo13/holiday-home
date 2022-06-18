@@ -19,7 +19,6 @@
   position: relative;
   justify-self: center;
   width: 60vw;
-  min-width: 50vw;
   margin-bottom: 5rem;
   margin-top: -50px;
 }
@@ -27,6 +26,7 @@
 @media (max-width: 991.98px) {
   .cardBookingContainer {
     margin-top: -2.2rem;
+    width: 90vw;
   }
 }
 
@@ -34,8 +34,13 @@
   grid-area: services;
   justify-self: center;
   width: 60vw;
-  min-width: 50vw;
   margin-bottom: 5rem;
+}
+
+@media (max-width: 991.98px) {
+  .services {
+    width: 90vw;
+  }
 }
 
 .homeDetails {
