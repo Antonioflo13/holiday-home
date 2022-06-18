@@ -1,5 +1,10 @@
+//REACT
+import {useState, useEffect} from "react";
 //NEXT
 import Image from "next/image";
+//FIREBASE STORAGE
+import { storage } from "../firebase-config";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
 //CAROUSEL
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
@@ -17,53 +22,18 @@ import image9 from "../assets/img/carouselImages/img9.jpeg";
 import styles from "./styles/Carousel.module.scss";
 
 const Carousel = () => {
-  const images = [
-    {
-      id: "1",
-      url: image1,
-      position: "center",
-    },
-    {
-      id: "2",
-      url: image2,
-      position: "center",
-    },
-    {
-      id: "3",
-      url: image3,
-      position: "center",
-    },
-    {
-      id: "4",
-      url: image4,
-      position: "center",
-    },
-    {
-      id: "5",
-      url: image5,
-      position: "center",
-    },
-    {
-      id: "6",
-      url: image6,
-      position: "center",
-    },
-    {
-      id: "7",
-      url: image7,
-      position: "center",
-    },
-    {
-      id: "8",
-      url: image8,
-      position: "center",
-    },
-    {
-      id: "9",
-      url: image9,
-      position: "center",
-    },
-  ];
+  const [listImages, setListImages] = useState([]);
+  const imageRef = ref(storage, 'carousel/');
+  useEffect(() => {
+    listAll(imageRef).then(response => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setListImages((prev) => [...prev, {id: listImages.length ++,src:url, alt: `carousel-${listImages.length}`}]);
+        })
+      })
+    })
+  }, []);
+
   return (
     <Splide
       options={{
@@ -77,18 +47,21 @@ const Carousel = () => {
         pagination: false,
       }}
     >
-      {images.map((image) => {
+      {listImages.map((image) => {
         return (
           <SplideSlide key={image.id}>
-            <img
-              className={styles.image}
-              style={{
-               objectPosition: image.position
-              }
-              }
-              src={`${image.url.src}`}
-              alt={image.url.src}
-            />
+              <div className={styles.image}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      layout={'fill'}
+                      objectFit='cover'
+                      placeholder="blur"
+                      blurDataURL={image.src}
+                      quality={75}
+                      priority={true}
+                    />
+              </div>
           </SplideSlide>
         );
       })}

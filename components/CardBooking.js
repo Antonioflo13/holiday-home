@@ -100,7 +100,7 @@ const CardBooking = () => {
     }
   };
 
-  //Check selcted dates is between in DB
+  //Check selected dates is between in DB
   const checkDates = (checkIn, checkOut, allNotAvailableDatesInMs) => {
     for (const allNotAvailableDateInMs of allNotAvailableDatesInMs) {
       if (moment(allNotAvailableDateInMs).isBetween(checkIn, checkOut)) {
@@ -123,7 +123,7 @@ const CardBooking = () => {
   //HTML RENDERS
   const cardHeader = (
     <div className="flex justify-content-center align-items-center text-xl p-3">
-      <div>Ehi, scegli le date per la tua prossima vacanza!</div>
+      <div>Scegli le date per la tua prossima vacanza!</div>
       <RedDoor />
     </div>
   );

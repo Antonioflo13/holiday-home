@@ -1,5 +1,3 @@
-//NEXT
-import Image from "next/image";
 //LOGO
 import Logo from "../assets/img/Logo.svg";
 //STYLES

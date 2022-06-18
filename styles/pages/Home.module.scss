@@ -18,34 +18,30 @@
   grid-area: cardBooking;
   position: relative;
   justify-self: center;
+  width: 60vw;
+  min-width: 50vw;
   margin-bottom: 5rem;
   margin-top: -50px;
 }
 
 @media (max-width: 991.98px) {
   .cardBookingContainer {
-    margin: -2.2rem 2rem 5rem 2rem;
+    margin-top: -2.2rem;
   }
 }
 
 .services {
   grid-area: services;
   justify-self: center;
-  max-width: 70vw;
+  width: 60vw;
+  min-width: 50vw;
   margin-bottom: 5rem;
-}
-
-@media (max-width: 598.98px) {
-  .services {
-    max-width: none;
-   width: 85vw;
-  }
 }
 
 .homeDetails {
   grid-area: homeDetails;
   justify-self: center;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .locationMap {
