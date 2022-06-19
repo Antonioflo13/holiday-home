@@ -1,6 +1,9 @@
 //NEXT
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
+//FIREBASE STORAGE
+import {storage} from "../firebase-config";
+import {ref, listAll, getDownloadURL} from "firebase/storage";
 //PRIME REACT
 import { Galleria } from "primereact/galleria";
 //IMAGES
@@ -17,48 +20,8 @@ import image9 from "../assets/img/carouselImages/img9.jpeg";
 const DialogGallery = (props) => {
   const { openDialogGallery, closeDialogGallery, index } = props;
   const [activeIndex, setActiveIndex] = useState(0);
+  const [listImages, setListImages] = useState([]);
   const galleria3 = useRef(null);
-
-  const images = [
-    {
-      itemImageSrc: image1,
-      thumbnailImageSrc: image1,
-      title: "Ingresso",
-    },
-    {
-      itemImageSrc: image2,
-      thumbnailImageSrc: image2,
-    },
-    {
-      itemImageSrc: image3,
-      thumbnailImageSrc: image3,
-    },
-    {
-      itemImageSrc: image4,
-      thumbnailImageSrc: image4,
-    },
-    {
-      itemImageSrc: image5,
-      thumbnailImageSrc: image5,
-    },
-    {
-      itemImageSrc: image6,
-      thumbnailImageSrc: image6,
-    },
-    {
-      itemImageSrc: image7,
-      thumbnailImageSrc: image7,
-    },
-    {
-      itemImageSrc: image8,
-      thumbnailImageSrc: image8,
-    },
-    {
-      itemImageSrc: image9,
-      thumbnailImageSrc: image9,
-    },
-  ];
-
   const responsiveOptions = [
     {
       breakpoint: "1024px",
@@ -73,6 +36,22 @@ const DialogGallery = (props) => {
       numVisible: 1,
     },
   ];
+
+  const imageRef = ref(storage, 'gallery/');
+  useEffect(() => {
+    listAll(imageRef).then(response => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setListImages((prev) => [...prev, {
+            id: listImages.length++,
+            size: listImages.length % 4 ? 'lg' : '',
+            src: url,
+            alt: `dialog-gallery-${listImages.length}`
+          }]);
+        })
+      })
+    })
+  }, []);
 
   useEffect(() => {
     if (openDialogGallery) {
@@ -91,7 +70,7 @@ const DialogGallery = (props) => {
   const itemTemplate = (item) => {
     return (
       <img
-        src={item.itemImageSrc.src}
+        src={item.src}
         alt={item.alt}
         style={{ width: "100%", display: "block" }}
       />
@@ -101,7 +80,7 @@ const DialogGallery = (props) => {
   const thumbnailTemplate = (item) => {
     return (
       <img
-        src={item.thumbnailImageSrc}
+        src={item.src}
         alt={item.alt}
         style={{ display: "block" }}
       />
@@ -111,7 +90,7 @@ const DialogGallery = (props) => {
   return (
     <Galleria
       ref={galleria3}
-      value={images}
+      value={listImages}
       responsiveOptions={responsiveOptions}
       numVisible={7}
       style={{ maxWidth: "850px" }}

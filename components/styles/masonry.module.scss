@@ -33,6 +33,7 @@
 .img {
   filter: blur(0.7px) grayscale(2%);
   width: 100%;
+  object-fit: contain;
 }
 
 @media screen and (max-width:425.98px) {

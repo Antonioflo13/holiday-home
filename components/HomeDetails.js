@@ -1,63 +1,34 @@
 //REACT
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Parallax } from "react-scroll-parallax";
+//FIREBASE STORAGE
+import {storage} from "../firebase-config";
+import {ref, listAll, getDownloadURL} from "firebase/storage";
+
 //COMPONENTS
 import DialogGallery from "./DialogGallery";
-//IMAGES
-import image1 from "/assets/img/carouselImages/img1.jpeg";
-import image2 from "/assets/img/carouselImages/img2.jpeg";
-import image3 from "/assets/img/carouselImages/img3.jpeg";
-import image4 from "/assets/img/carouselImages/img4.jpeg";
-import image5 from "/assets/img/carouselImages/img5.jpeg";
-import image6 from "/assets/img/carouselImages/img6.jpeg";
-import image7 from "/assets/img/carouselImages/img7.jpeg";
-import image8 from "/assets/img/carouselImages/img8.jpeg";
-import image9 from "/assets/img/carouselImages/img9.jpeg";
 //STYLES
 import style from "./styles/GalleryMasonry.module.scss";
 
 const Masonry = () => {
   const [openDialogGallery, setOpenDialogGallery] = useState(false);
   const [index, setIndex] = useState(0);
-  const images = [
-    {
-      id: "1",
-      url: image1,
-      size: "lg",
-    },
-    {
-      id: "2",
-      url: image2,
-    },
-    {
-      id: "3",
-      url: image3,
-    },
-    {
-      id: "4",
-      url: image4,
-    },
-    {
-      id: "5",
-      url: image5,
-    },
-    {
-      id: "6",
-      url: image6,
-    },
-    {
-      id: "7",
-      url: image7,
-    },
-    {
-      id: "8",
-      url: image8,
-    },
-    {
-      id: "9",
-      url: image9,
-    },
-  ];
+  const [listImages, setListImages] = useState([]);
+  const imageRef = ref(storage, 'gallery-masonry/');
+  useEffect(() => {
+    listAll(imageRef).then(response => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setListImages((prev) => [...prev, {
+            id: listImages.length++,
+            size: listImages.length === 1 ? 'lg' : '',
+            src: url,
+            alt: `gallery-masonry-${listImages.length}`
+          }]);
+        })
+      })
+    })
+  }, []);
   //FUNCTIONS
   const doOpenDialogGallery = (index) => {
     setOpenDialogGallery(true);
@@ -74,7 +45,7 @@ const Masonry = () => {
         closeDialogGallery={closeDialogGallery}
         index={index}
       />
-      {images.map((image, index) => (
+      {listImages.map((image, index) => (
         <div
           className={`${image.size === "lg" ? style.gridCol2 : ""} `}
           key={image.id}
@@ -82,8 +53,8 @@ const Masonry = () => {
           <Parallax translateY={[-1, 1]} opacity={[-1, 10]} speed={5}>
             <img
               className={style.img}
-              src={`${image.url.src}`}
-              alt={`${image.url.src}`}
+              src={image.src}
+              alt={image.alt}
               onClick={() => doOpenDialogGallery(index)}
             />
           </Parallax>
