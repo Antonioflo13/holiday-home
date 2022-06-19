@@ -6,7 +6,7 @@ import {collection, getDocs} from "firebase/firestore";
 import {Card} from "primereact/card";
 import {Skeleton} from "primereact/skeleton";
 
-import Logo from "../assets/img/Logo.png";
+import Logo from "../assets/img/Logo.svg";
 import styles from "../styles/pages/SuccessPayment.module.scss";
 
 const SuccessPayment = () => {
