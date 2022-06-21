@@ -46,7 +46,14 @@
 .homeDetails {
   grid-area: homeDetails;
   justify-self: center;
+  width: 60vw;
   margin-bottom: 4rem;
+}
+
+@media (max-width: 991.98px) {
+  .homeDetails {
+    width: 90vw;
+  }
 }
 
 .locationMap {

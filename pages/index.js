@@ -8,7 +8,7 @@ import { ParallaxBanner } from "react-scroll-parallax";
 import Carousel from "../components/Carousel";
 import CardBooking from "../components/CardBooking";
 import Services from "../components/services";
-import HomeDetails from "../components/HomeDetails";
+import GalleryMasonry from "../components/GalleryMasonry";
 import LocationMap from "../components/LocationMap";
 import Masonry from "../components/Masonry";
 
@@ -31,7 +31,7 @@ const Home = () => {
         <Services />
       </div>
       <div className={styles.homeDetails}>
-        <HomeDetails />
+        <GalleryMasonry />
       </div>
       <div className={styles.locationMap}>
         <LocationMap />
