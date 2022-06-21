@@ -36,7 +36,7 @@ const GalleryMasonry = () => {
             <img
                 src={item.src}
                 alt={item.alt}
-                style={{width: "100vw", height: "80vh", display: "block"}}
+                style={{width: "100vw", height: "60vh", objectFit: 'cover', display: "block"}}
             />
         );
     };

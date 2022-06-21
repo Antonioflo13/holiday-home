@@ -17,10 +17,10 @@ export default function Document() {
         <meta name="author" content="AF" />
           <link rel="shortcut icon" type="image/x-icon" href="/casagiardino.ico" />
           <meta name="msapplication-TileColor" content="#ffffff"/>
-          <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package_v0.16/apple-touch-icon.png"/>
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon_package_v0.16/favicon-32x32.png"/>
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon_package_v0.16/favicon-16x16.png"/>
-          <link rel="mask-icon" href="/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"/>
+          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
+          <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5"/>
           <meta name="theme-color" content="#ffffff"/>
           <link rel="preconnect" href="https://fonts.googleapis.com"/>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
