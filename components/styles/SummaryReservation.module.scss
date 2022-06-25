@@ -4,6 +4,12 @@
   margin-bottom: 1rem;
 }
 
+@media (max-width: 425.75px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
 .summaryItemContainer {
   margin-bottom: 1rem;
 }

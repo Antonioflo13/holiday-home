@@ -39,7 +39,7 @@ const DialogPayment = (props) => {
       header="Conferma e paga"
       visible={openDialogPayment}
       style={{ width: "35vw" }}
-      breakpoints={{ "960px": "75vw" }}
+      breakpoints={{"960px": "75vw", "768px": "95vw"}}
       onHide={onHide}
     >
       <div>
