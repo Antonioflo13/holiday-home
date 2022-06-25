@@ -168,11 +168,11 @@ const CardBooking = () => {
           />
           {totalVisitors > 0 && (
             <div className="flex align-items-center py-2">
-              <div className="w-full">{`${
+              <span className="w-full">{`${
                 totalVisitors === 1
                   ? `${totalVisitors} ospite`
                   : `${totalVisitors} ospiti`
-              }`}</div>
+              }`}</span>
               <Button
                 icon="pi pi-pencil"
                 iconPos="right"

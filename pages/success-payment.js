@@ -1,12 +1,15 @@
+//REACT
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+//FIREBASE
 import {db} from "../firebase-config";
 import {collection, getDocs} from "firebase/firestore";
-
+//PRIMEREACT
 import {Card} from "primereact/card";
 import {Skeleton} from "primereact/skeleton";
-
+//LOGO
 import Logo from "../assets/img/Logo.svg";
+//STYLES
 import styles from "../styles/pages/SuccessPayment.module.scss";
 
 const SuccessPayment = () => {
@@ -14,21 +17,18 @@ const SuccessPayment = () => {
     const [client, setClient] = useState(null);
     const router = useRouter();
     useEffect(() => {
-        getInfoClient();
-    }, []);
+        getInfoClient(+router.query.sr / 1000, +router.query.er / 1000)
+    }, [router.query.sr, router.query.er]);
 
-    const getInfoClient = async () => {
-        let startReservation = Number(router.query.sr / 1000);
-        let endReservation = Number(router.query.er / 1000);
-
+    const getInfoClient = async (startReservation, endReservation) => {
         const data = await getDocs(reservationsCollectionRef);
-        const infoClient = await data.docs.find((reservation) => {
+        const infoClient = data.docs.find((reservation) => {
             return (
                 reservation.data().startReservation.seconds === startReservation &&
                 reservation.data().endReservation.seconds === endReservation
             );
         });
-        console.log(infoClient);
+        setClient(infoClient?.data());
     };
     return (
         <div className={styles.bgMain}>
@@ -43,7 +43,7 @@ const SuccessPayment = () => {
                     )}
                     {client && (
                         <Card className={styles.paymentCard}>
-                            <img src={Logo} alt={Logo} className={styles.imageCard}/>
+                            <Logo/>
                             <div className={styles.titleCard}>
                                 Ti Auguriamo Buone Vacanze!
                             </div>

@@ -1,6 +1,8 @@
+//REACT
+import {useRouter} from "next/router";
 //PARALLAX
 import { ParallaxProvider } from "react-scroll-parallax";
-//PRIME VUE
+//PRIME REACT
 import "primeicons/primeicons.css";
 import "primereact/resources/primereact.min.css";
 import "/node_modules/primeflex/primeflex.css";
@@ -16,11 +18,12 @@ import Footer from "../components/Footer";
 require(`/assets/scss/${process.env.NEXT_PUBLIC_THEME}/color.css`);
 
 function MyApp({ Component, pageProps }) {
+    const router = useRouter();
   return (
     <ParallaxProvider>
-      <Header />
+        {router.pathname !== '/success-payment' && <Header />}
       <Component {...pageProps} />
-      <Footer />
+        {router.pathname !== '/success-payment' && <Footer />}
     </ParallaxProvider>
   );
 }
